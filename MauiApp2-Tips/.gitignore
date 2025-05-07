@@ -1,0 +1,57 @@
+# Archivos y carpetas generados por Visual Studio/VS Code
+.vscode/
+.vs/
+.idea/
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de configuración de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de paquetes NuGet
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Archivos de configuración de dependencias
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+
+# Archivos de Resizetizer (imágenes generadas automáticamente)
+**/resizetizer/**
+
+# Archivos de configuración de MSBuild generados
+*.GeneratedMSBuildEditorConfig.editorconfig
+
+# Archivos de configuración de plataforma
+*.apk
+*.aab
+*.ipa
+*.app
+*.dSYM/
+*.xcuserstate
+*.xcworkspace/
+*.xcodeproj/
+
+# Archivos de logs y temporales
+*.log
+*.tlog
+*.cache
+*.tmp
+*.temp
+
+# Archivos de configuración de sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de configuración de Git
+*.orig
+*.rej

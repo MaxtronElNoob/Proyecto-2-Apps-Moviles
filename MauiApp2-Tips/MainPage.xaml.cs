@@ -1,24 +1,40 @@
-﻿namespace MauiApp2_Tips;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
+namespace MauiApp2_Tips;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
+	private UserViewModel viewModel;
 	public MainPage()
 	{
 		InitializeComponent();
+		viewModel = new UserViewModel();
+		BindingContext = viewModel;
 	}
+}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+public partial class UserViewModel : ObservableObject
+{
+	[ObservableProperty]
+	private string name;
+
+	[ObservableProperty]
+	private string email;
+
+	public UserViewModel()
 	{
-		count++;
+		// Inicializamos con datos por defecto
+		Name = "azul";
+		Email = "";
+	}
+	[RelayCommand]
+	public void LoadUser(){
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+		// Inicializamos con datos por defecto
+		Name = "Juan Perez";
+		Email = "juan@example.com";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 }
 

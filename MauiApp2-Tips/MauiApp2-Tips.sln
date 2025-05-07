@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp2-Tips", "MauiApp2-Tips.csproj", "{231C2D58-27C3-3674-F140-441089004BCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{231C2D58-27C3-3674-F140-441089004BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{231C2D58-27C3-3674-F140-441089004BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{231C2D58-27C3-3674-F140-441089004BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{231C2D58-27C3-3674-F140-441089004BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11C8B60B-2E3B-4E71-A117-F3CD579C4BBF}
+	EndGlobalSection
+EndGlobal

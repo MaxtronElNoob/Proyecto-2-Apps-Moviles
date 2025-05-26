@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MauiApp2_Tips.MainPage"
+     xmlns:components="clr-namespace:MauiApp2_Tips.Components"
+>
+<ScrollView>
+	<VerticalStackLayout Padding="30,0" Spacing="25">
+	   <components:PerPersonAmountsPanel PerPersonAmount="{Binding perPersonAmount}" Subtotal="{Binding subtotal}" TipAmount="{Binding tipAmount}" />
+<HorizontalStackLayout Spacing="25">
+	<Label Text="Valor Boleta" />
+		<HorizontalStackLayout>
+			<Label Text="$" />
+					<Entry Text="{Binding BillTotalText}"  Keyboard="Numeric" />
+		</HorizontalStackLayout>
+	</HorizontalStackLayout>
+				<Label Text="{Binding Bill.TipPercent}" />
+	<HorizontalStackLayout>
+		<Label Text="Elige propina"/>
+		<Button Text="10%" Command="{Binding UpdateTip}" CommandParameter="0.1"/>
+		<Button Text="15%" Command="{Binding UpdateTip}" CommandParameter="0.15"/>
+		<Button Text="20%" Command="{Binding UpdateTip}" CommandParameter="0.2"/>
+	</HorizontalStackLayout>
+	<!-- <HorizontalStackLayout>
+	<Label Text="Elige propina"/>
+	<Slider Minimum="0" Maximum="100" Value="{Binding Propina}" ValueChanged="OnSliderValueChanged" />
+	</HorizontalStackLayout> -->
+</VerticalStackLayout>
+</ScrollView>
+
+</ContentPage>

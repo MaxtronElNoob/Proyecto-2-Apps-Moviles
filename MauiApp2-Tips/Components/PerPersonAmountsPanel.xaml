@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MauiApp2_Tips.Components.PerPersonAmountsPanel"
+	x:Name="perPersonAmountsPanelControl"
+	>
+    <BoxView Color="LightBlue" />
+	<VerticalStackLayout>
+    <Label Text="Total por persona" 
+           FontSize="32" 
+           HorizontalOptions="Center" />
+    <Label Text="{Binding PerPersonAmount, Source={x:Reference perPersonAmountsPanelControl}}"
+           FontSize="20" 
+           HorizontalOptions="Center" />
+		<HorizontalStackLayout>
+	<Label Text="Subtotal"/>
+			<Label Text="{Binding Subtotal, Source={x:Reference perPersonAmountsPanelControl} }"/>
+		</HorizontalStackLayout>
+		<HorizontalStackLayout>
+		<Label Text="Propina" />
+			<Label Text="{Binding TipAmount, Source={x:Reference perPersonAmountsPanelControl} }"/>
+		</HorizontalStackLayout>
+	</VerticalStackLayout>
+</Grid>

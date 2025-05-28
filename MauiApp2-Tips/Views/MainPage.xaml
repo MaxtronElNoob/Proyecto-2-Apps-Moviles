@@ -27,6 +27,11 @@
 			<Label Text="Elige propina"/>
 			<Slider Minimum="0" Maximum="100" Value="{Binding Propina}" ValueChanged="OnSliderValueChanged" />
 			</HorizontalStackLayout> -->
+			<HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+				<Label Text="Dividir el Total" VerticalOptions="Center"/>
+				<Stepper Value="{Binding Bill.NPeople}" Increment="1" Minimum="1" WidthRequest="120"/>
+				<Label Text="{Binding Bill.NPeople}" VerticalOptions="Center"/>
+			</HorizontalStackLayout>
 		</VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

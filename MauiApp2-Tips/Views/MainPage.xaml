@@ -23,10 +23,10 @@
 				<Button Text="15%" Command="{Binding UpdateTipCommand}" CommandParameter="0.15"/>
 				<Button Text="20%" Command="{Binding UpdateTipCommand}" CommandParameter="0.2"/>
 			</HorizontalStackLayout>
-			<!-- <HorizontalStackLayout>
+			<HorizontalStackLayout>
 			<Label Text="Elige propina"/>
-			<Slider Minimum="0" Maximum="100" Value="{Binding Propina}" ValueChanged="OnSliderValueChanged" />
-			</HorizontalStackLayout> -->
+			<Slider Minimum="0" Maximum="1" Value="{Binding Bill.TipPercent}" WidthRequest="305"/>
+			</HorizontalStackLayout> 
 		</VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

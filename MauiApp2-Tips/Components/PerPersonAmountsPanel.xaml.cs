@@ -3,7 +3,7 @@ public partial class PerPersonAmountsPanel : Grid
 {
 		public PerPersonAmountsPanel()
 		{
-				InitializeComponent();
+			InitializeComponent();
 		}
 		public static readonly BindableProperty SubtotalProperty =
 				BindableProperty.Create(

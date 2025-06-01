@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.ComponentModel;
 
 namespace MauiApp2_Tips;
+
 public partial class BillViewModel : ObservableObject
 {
 	[ObservableProperty]
@@ -68,6 +69,11 @@ public partial class BillViewModel : ObservableObject
 		OnPropertyChanged(nameof(perPersonAmount));
 	}
 
+	// void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+	// {
+	//     Bill.NPeople = (int)e.NewValue;
+	// }
+
 	public BillViewModel()
 	{
 		Bill = new RestaurantBill { BillTotal = 0, TipPercent = 0.0, NPeople = 1 };
@@ -91,5 +97,18 @@ public partial class BillViewModel : ObservableObject
 	public void updateNPeople(int? Label_people)
 	{
 		Bill.NPeople = Label_people ?? 1;
+	}
+	[RelayCommand]
+	public void incrementNPeople()
+	{
+		Bill.NPeople++;
+	}
+	[RelayCommand]
+	public void decrementNPeople()
+	{
+		if (Bill.NPeople > 1)
+		{
+			Bill.NPeople--;
+		}
 	}
 }

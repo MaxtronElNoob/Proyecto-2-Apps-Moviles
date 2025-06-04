@@ -13,6 +13,7 @@ public partial class BillViewModel : ObservableObject
 	public int subtotal => (int)(Bill.BillTotal / Bill.NPeople);
 	public int tipAmount => (int)Math.Round(subtotal * Bill.TipPercent);
 	public int perPersonAmount => subtotal + tipAmount;
+	public string TipPercentText => $"{Math.Round(Bill.TipPercent * 100)}%";
 
 	public string BillTotalText
 	{
@@ -29,50 +30,14 @@ public partial class BillViewModel : ObservableObject
 		}
 	}
 
-	public string TipPercentText
-	{
-		get => Bill.TipPercent.ToString();
-		set
-		{
-			if (float.TryParse(value, out var result))
-			{
-				Bill.TipPercent = result;
-				OnPropertyChanged(nameof(subtotal));
-				OnPropertyChanged(nameof(tipAmount));
-				OnPropertyChanged(nameof(perPersonAmount));
-			}
-		}
-	}
-
-	// private int calculateTipAmount()
-	// {
-	// 	return (int)(subtotal * Bill.TipPercent);
-	// }
-
-	// private int calculatePerPersonSubtotal()
-	// {
-	// 	return (int)(Bill.BillTotal / Bill.NPeople);
-
-	// }
-
-	// private int calculatePerPersonAmount()
-	// {
-	// 	int perPersonSplit = subtotal + tipAmount;
-	// 	return perPersonSplit;
-	// }
-
 	private void OnBillChanged(object sender, PropertyChangedEventArgs e)
 	{
 		Console.WriteLine("Actualizando Valores...");
 		OnPropertyChanged(nameof(subtotal));
 		OnPropertyChanged(nameof(tipAmount));
 		OnPropertyChanged(nameof(perPersonAmount));
+		OnPropertyChanged(nameof(TipPercentText));
 	}
-
-	// void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-	// {
-	//     Bill.NPeople = (int)e.NewValue;
-	// }
 
 	public BillViewModel()
 	{
@@ -83,8 +48,7 @@ public partial class BillViewModel : ObservableObject
 	[RelayCommand]
 	private void UpdateTip(string? Button_porcentage)
 	{
-		Console.WriteLine("Cambio de propina a: " + Button_porcentage);
-		TipPercentText = Button_porcentage ?? "0.0";
+		Bill.TipPercent = float.Parse(Button_porcentage ?? "0");
 	}
 
 	[RelayCommand]
@@ -111,4 +75,5 @@ public partial class BillViewModel : ObservableObject
 			Bill.NPeople--;
 		}
 	}
+
 }

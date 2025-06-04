@@ -40,7 +40,12 @@
 						<VerticalStackLayout Padding="1" Spacing="10">
 							<Label Text="% Propina:" TextColor="White" HorizontalOptions="Center"/>
 						</VerticalStackLayout> 
-						<Slider  WidthRequest="200" Minimum="0" Maximum="1" Value="{Binding Bill.TipPercent}" ThumbColor="Purple" MinimumTrackColor="Purple"/>
+						<VerticalStackLayout>
+							<Grid>
+								<Slider x:Name="TipSlider" ValueChanged="TipSlider_ValueChanged" WidthRequest="200" Minimum="0" Maximum="1" Value="{Binding Bill.TipPercent}" ThumbColor="Purple" MinimumTrackColor="Purple"/>
+								<Label x:Name="TipLabel" Text="{Binding TipPercentText}" TranslationX="0" TranslationY="30" HorizontalOptions="Start" FontSize="12" TextColor="White"/>
+							</Grid>
+						</VerticalStackLayout>
 					</HorizontalStackLayout>
 				</Grid>
 			</VerticalStackLayout>

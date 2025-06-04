@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="MauiApp2_Tips.MainPage"
+    xmlns:components="clr-namespace:MauiApp2_Tips.Components"
+	BackgroundColor="#FF2B2B2B"
+>
+	<Grid Padding="2">
+		<ScrollView>
+			<VerticalStackLayout Padding="20" Spacing="20">
+				<components:PerPersonAmountsPanel PerPersonAmount="{Binding perPersonAmount}" Subtotal="{Binding subtotal}" TipAmount="{Binding tipAmount}" />
+				<Grid>
+					<HorizontalStackLayout Spacing="20">
+						<VerticalStackLayout> 
+							<Label Text="Valor Boleta: " TextColor="White" />
+							<Label Text="$" TextColor="White"  />
+						</VerticalStackLayout>
+						<Entry Text="{Binding BillTotalText}" FontSize="16" Keyboard="Numeric" TextColor="White" />
+					</HorizontalStackLayout>
+				</Grid>
+		
+				<HorizontalStackLayout Spacing="10" Padding="2">
+					<Label Text="Elige propina" TextColor="White" VerticalOptions="Center"/>
+					<Button Text="10%" Command="{Binding UpdateTipCommand}" CommandParameter="0.1"/>
+					<Button Text="15%" Command="{Binding UpdateTipCommand}" CommandParameter="0.15"/>
+					<Button Text="20%" Command="{Binding UpdateTipCommand}" CommandParameter="0.2"/>
+				</HorizontalStackLayout>
+				
+				<HorizontalStackLayout Spacing="10" Padding="2">
+					<Label Text="Dividir el Total" VerticalOptions="Center" TextColor="White" />
+					<Frame BackgroundColor="#FF3E3E3E" WidthRequest="50" HeightRequest="50" Padding="5" CornerRadius="10">
+						<Label Text="{Binding Bill.NPeople}" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White"/>
+					</Frame>
+					<Stepper Value="{Binding Bill.NPeople}" Increment="1" Minimum="1" WidthRequest="110"/>
+					
+				</HorizontalStackLayout>
+				<Grid>
+					<HorizontalStackLayout>
+						<VerticalStackLayout Padding="1" Spacing="10">
+							<Label Text="% Propina:" TextColor="White" HorizontalOptions="Center"/>
+						</VerticalStackLayout> 
+						<VerticalStackLayout>
+							<Grid>
+								<Slider x:Name="TipSlider" ValueChanged="TipSlider_ValueChanged" WidthRequest="200" Minimum="0" Maximum="1" Value="{Binding Bill.TipPercent}" ThumbColor="Purple" MinimumTrackColor="Purple"/>
+								<Label x:Name="TipLabel" Text="{Binding TipPercentText}" TranslationX="0" TranslationY="30" HorizontalOptions="Start" FontSize="12" TextColor="White"/>
+							</Grid>
+						</VerticalStackLayout>
+					</HorizontalStackLayout>
+				</Grid>
+			</VerticalStackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>
